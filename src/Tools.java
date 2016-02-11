@@ -15,7 +15,7 @@ public class Tools {
      * @return
      */
     public static double distance(Drone drone, Cell cell){
-        return Math.sqrt(Math.pow((drone.getPosition().getX()+cell.getX()),2) + Math.pow((drone.getPosition().getY()+ cell.getY()),2));
+        return Math.sqrt(Math.pow((drone.getCell().getX()+cell.getX()),2) + Math.pow((drone.getCell().getY()+ cell.getY()),2));
     }
 
     /**

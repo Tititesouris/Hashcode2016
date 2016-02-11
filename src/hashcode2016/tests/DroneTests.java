@@ -1,5 +1,6 @@
 package hashcode2016.tests;
 
+import hashcode2016.Cell;
 import hashcode2016.Drone;
 import hashcode2016.Product;
 import org.junit.Before;
@@ -33,9 +34,9 @@ public class DroneTests {
         productA = new Product(0, 0.5f);
         productB = new Product(1, 2.5f);
         productC = new Product(2, 5);
-        smallDrone = new Drone(0, 2);
-        mediumDrone = new Drone(1, 8.5f);
-        largeDrone = new Drone(2, 15.3f);
+        smallDrone = new Drone(0, new Cell(0, 0), 2);
+        mediumDrone = new Drone(1, new Cell(0, 0), 8.5f);
+        largeDrone = new Drone(2, new Cell(0, 0), 15.3f);
     }
 
     @Test

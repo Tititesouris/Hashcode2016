@@ -8,14 +8,18 @@ public class Simulation {
 
     private Map map;
 
+    private List<Warehouse> warehouses;
+
     private List<Order> orders;
 
     private List<Drone> drones;
 
     public Simulation(DataContainer dataContainer) {
         this.map = new Map(dataContainer.rows, dataContainer.columns);
+        warehouses = new ArrayList<>();
         for (Warehouse warehouse : dataContainer.getWarehouses().values()) {
             map.setCell(warehouse.getX(), warehouse.getY(), warehouse);
+            warehouses.add(warehouse);
         }
         orders = new ArrayList<>();
         for (Order order : dataContainer.getOrders().values()) {
@@ -23,7 +27,7 @@ public class Simulation {
         }
         drones = new ArrayList<>();
         for (int i = 0; i < dataContainer.getDrones(); i++) {
-            drones.add(new Drone(i, dataContainer.getMaxPayload()));
+            drones.add(new Drone(i, warehouses.get(0), dataContainer.getMaxPayload()));
         }
         map.setDrones(drones);
     }
