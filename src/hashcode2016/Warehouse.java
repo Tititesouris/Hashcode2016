@@ -8,11 +8,14 @@ import java.util.Map;
  */
 public class Warehouse extends Cell {
 
-    private Map<Product, Integer> products;
+    private Map<Product,Integer> products;
+    private int id;
 
-    public Warehouse(int x, int y){
-        super(x, y);
+    public Warehouse(int id, int x,int y){
+        super(x,y);
+        this.id = id;
         products = new HashMap<>();
+
     }
 
 
@@ -53,4 +56,7 @@ public class Warehouse extends Cell {
         return 0;
     }
 
+    public int getId() {
+        return id;
+    }
 }

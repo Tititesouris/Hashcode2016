@@ -50,7 +50,7 @@ public class Parser {
             container.setNbWarehouses(getIntArg(scanner.nextLine()));// warehouses number
             for (int idWarehouse = 0; idWarehouse < container.getNbWarehouses(); idWarehouse++) {
                 line = getNextLine(scanner); // contains location
-                container.getWarehouses().put(idWarehouse, new Warehouse(getIntArg(line[1]), getIntArg(line[0])));
+                container.getWarehouses().put(idWarehouse, new Warehouse(idWarehouse, getIntArg(line[1]), getIntArg(line[0])));
 
                 line = getNextLine(scanner); // contains products numbers
                 for (int productId = 0; productId < container.getNbProductsType(); productId++) {

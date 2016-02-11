@@ -16,4 +16,8 @@ public class Product {
 	public float getWeight() {
 		return weight;
 	}
+
+	public int getType() {
+		return type;
+	}
 }
