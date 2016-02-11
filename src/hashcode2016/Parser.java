@@ -8,9 +8,18 @@ import java.util.Scanner;
 public class Parser {
 
     /**
-     * Parse data
+     * Default constructor
+     * @return
      */
     public static DataContainer parse() {
+        return parse("busy_day.in");
+    }
+
+        /**
+         * Parse data
+         * @param fileInput
+         */
+    public static DataContainer parse(String fileInput) {
         Scanner scanner;
 
         // DataContainer
