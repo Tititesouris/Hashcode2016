@@ -9,7 +9,7 @@ public class Order {
 	private int y;
 	private int nbItems;
 
-	Map<Product, Integer> order;
+	private Map<Product, Integer> order;
 
 	/**
 	 *

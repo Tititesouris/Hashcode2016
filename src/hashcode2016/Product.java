@@ -12,4 +12,8 @@ public class Product {
 		return d.getMaxPayload()>= this.weight;
 		
 	}
+
+	public float getWeight() {
+		return weight;
+	}
 }
