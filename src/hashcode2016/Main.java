@@ -10,11 +10,12 @@ public class Main {
     static List<Drone> drones;
     static List<Delivery> deliveries;
     static List<Order> orders;
+    static Simulation sim;
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
         container = Parser.parse("mother_of_all_warehouses.in");
-        Simulation sim = new Simulation(container);
+        sim = new Simulation(container);
         map=sim.getMap();
         System.out.println(container);
 
@@ -35,9 +36,19 @@ public class Main {
     public static Delivery giveOrders(Drone drone){
         Delivery delivery = new Delivery(drone);
 
-        
+        delivery.addOrder(orders.get(0));
 
         return delivery;
+    }
+
+    public void executeDelivery(Delivery delivery){
+        Drone drone = delivery.getDrone();
+        java.util.HashMap<Integer,Warehouse> warehouses = container.getWarehouses();
+        int cpt=0;
+        while(!delivery.getNeededProducts().isEmpty()){
+            sim.loadOnDrone(warehouses.get(cpt),drone,delivery.getNeededProducts());
+        }
+
     }
 
 }

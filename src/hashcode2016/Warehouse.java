@@ -56,6 +56,14 @@ public class Warehouse extends Cell {
         return 0;
     }
 
+    public boolean canUnload(Product product, int amount) {
+        Integer loadedProduct = products.get(product);
+        if (loadedProduct != null) {
+                return amount<=loadedProduct;
+        }
+        return false;
+    }
+
     public int getId() {
         return id;
     }
