@@ -33,9 +33,9 @@ public class DroneTests {
         productA = new Product(0, 0.5f);
         productB = new Product(1, 2.5f);
         productC = new Product(2, 5);
-        smallDrone = new Drone(2);
-        mediumDrone = new Drone(8.5f);
-        largeDrone = new Drone(15.3f);
+        smallDrone = new Drone(0, 2);
+        mediumDrone = new Drone(1, 8.5f);
+        largeDrone = new Drone(2, 15.3f);
     }
 
     @Test

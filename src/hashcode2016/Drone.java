@@ -5,12 +5,16 @@ import java.util.Map;
 
 public class Drone {
 
+    private int id;
+
     private float maxPayload;
+
     private Cell position;
 
     private Map<Product, Integer> products;
 
-    public Drone(float maxPayload) {
+    public Drone(int id, float maxPayload) {
+        this.id = id;
         this.maxPayload = maxPayload;
         this.products = new HashMap<>();
     }
@@ -64,6 +68,10 @@ public class Drone {
             payload += product.getWeight() * products.get(product);
         }
         return payload;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public float getMaxPayload() {
