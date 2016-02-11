@@ -7,15 +7,18 @@ public class Order {
 
 	private int id;
 
-	private Client client;
+    private int x;
+
+    private int y;
 
 	private int nbItems;
 
 	private Map<Product, Integer> order;
 
-	public Order(int id, Client client) {
+	public Order(int id, int x, int y) {
 		this.id = id;
-		this.client = client;
+		this.x = x;
+        this.y = y;
 		this.order = new HashMap<Product, Integer>();
 	}
 
@@ -36,8 +39,12 @@ public class Order {
 		this.id = id;
 	}
 
-    public Client getClient() {
-        return client;
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public int getNbItems() {

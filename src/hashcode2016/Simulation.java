@@ -13,13 +13,12 @@ public class Simulation {
 
     public Simulation(DataContainer dataContainer) {
         this.map = new Map(dataContainer.rows, dataContainer.columns);
-        for (Warehouse warehouse : dataContainer.warehouses.values()) {
+        for (Warehouse warehouse : dataContainer.getWarehouses().values()) {
             map.setCell(warehouse.getX(), warehouse.getY(), warehouse);
         }
         orders = new ArrayList<>();
-        for (Order order : dataContainer.orders.values()) {
+        for (Order order : dataContainer.getOrders().values()) {
             orders.add(order);
-            map.setCell(order.getClient().getX(), order.getClient().getY(), order.getClient());
         }
         drones = new ArrayList<>();
         for (int i = 0; i < dataContainer.getDrones(); i++) {
