@@ -6,6 +6,7 @@ import java.util.Map;
 public class Drone {
 
     private float maxPayload;
+    private Cell position;
 
     private Map<Product, Integer> products;
 
@@ -72,5 +73,13 @@ public class Drone {
     public Map<Product, Integer> getProducts() {
         return products;
     }
-    
+
+    public Cell getPosition(){
+        return position;
+    }
+
+    public void setPosition(Cell c){
+        position=c;
+    }
+
 }
