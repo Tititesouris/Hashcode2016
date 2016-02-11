@@ -15,7 +15,9 @@ public class Order {
 	void addProduct(Product p, int quantity) {
 
 		if (order.containsKey(p))
-			order.replace(p, order.get(p) + 1);
+			order.replace(p, order.get(p) + quantity);
+		else 
+			order.put(p,quantity);
 
 	}
 }
