@@ -14,4 +14,10 @@ public class Simulation {
         }
     }
 
+    public Map getMap(){
+        return map;
+    }
+
+
+
 }
