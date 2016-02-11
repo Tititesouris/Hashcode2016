@@ -17,23 +17,26 @@ public class Main {
         System.out.println("Hello World!");
         container = Parser.parse("mother_of_all_warehouses.in");
         sim = new Simulation(container);
-        map=sim.getMap();
+        map = sim.getMap();
         System.out.println(container);
 
         drones = sim.getDrones();
         deliveries = new ArrayList<>();
-        orders=sim.getOrders();
+        orders = sim.getOrders();
 
 
-
-        for(int i=0;i<drones.size();i++){
+        for (int i = 0; i < drones.size(); i++) {
             deliveries.add(giveOrders(drones.get(i)));
         }
 
+        for (Delivery d : deliveries) {
+            executeDelivery(d);
+        }
+
+        commands.outputFile();
 
 
     }
-
     public static Delivery giveOrders(Drone drone){
         Delivery delivery = new Delivery(drone);
 
@@ -42,7 +45,7 @@ public class Main {
         return delivery;
     }
 
-    public void executeDelivery(Delivery delivery){
+    public static void executeDelivery(Delivery delivery){
         Drone drone = delivery.getDrone();
         java.util.HashMap<Integer,Warehouse> warehouses = container.getWarehouses();
         int cpt=0;
@@ -57,8 +60,10 @@ public class Main {
             Order toDeliver = delivery.getOrders().get(0);
 
             //DEliver
+            drone.setCell(map.getCell(toDeliver.getX(), toDeliver.getY()));
 
             for(Product p : toDeliver.getOrder().keySet()){
+                drone.unload(p,toDeliver.getOrder().get(p));
                 commands.deliver(drone,toDeliver,p,toDeliver.getOrder().get(p));
             }
             delivery.validateOrder(toDeliver);
