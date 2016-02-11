@@ -48,7 +48,9 @@ public class DroneTests {
 
     @Test
     public void unloadTest() {
-        fail();
+        assertEquals(0, smallDrone.unload(productA, 2));
+        smallDrone.load(productA, 5);
+        assertEquals(4, smallDrone.unload(productA, 5));
     }
 
 }
