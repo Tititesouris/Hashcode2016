@@ -35,14 +35,6 @@ public class Order extends Cell {
 		this.id = id;
 	}
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     public int getNbItems() {
 		return nbItems;
 	}
