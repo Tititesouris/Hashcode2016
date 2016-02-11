@@ -6,16 +6,13 @@ import java.util.Map;
 /**
  * Created by Guillaume on 11/02/2016.
  */
-public class Warehouse {
+public class Warehouse extends Cell {
 
-    private int x;
-    private int y;
     private Map<Product,Integer> products;
 
     public Warehouse(int x,int y){
+        super(x,y);
         products = new HashMap<Product,Integer>();
-        this.x=x;
-        this.y=y;
     }
 
     public boolean addProduct(Product p, int i){
@@ -31,14 +28,6 @@ public class Warehouse {
 
     public Map getProducts(){
         return products;
-    }
-
-    public int getX(){
-        return x;
-    }
-
-    public int getY(){
-        return y;
     }
 
     public int unload(Product p, int i){
