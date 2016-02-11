@@ -5,8 +5,7 @@ import java.util.Map;
 
 public class Order {
 	int id;
-	private int x;
-	private int y;
+	private Client client;
 	private int nbItems;
 
 	private Map<Product, Integer> order;
@@ -19,8 +18,7 @@ public class Order {
      */
 	public Order(int id, int x, int y) {
 		this.id = id;
-		this.x = x;
-		this.y = y;
+		client=new Client(x,y);
 		this.order = new HashMap<Product, Integer>();
 	}
 
@@ -42,19 +40,11 @@ public class Order {
 	}
 
 	public int getX() {
-		return x;
-	}
-
-	public void setX(int x) {
-		this.x = x;
+		return client.getX();
 	}
 
 	public int getY() {
-		return y;
-	}
-
-	public void setY(int y) {
-		this.y = y;
+		return client.getY();
 	}
 
 	public int getNbItems() {

@@ -29,7 +29,7 @@ public class Map {
 		String ret = "";
 		for(int i = 0; i < length; i++){
 			for(int j = 0; j < width ; j++){
-				ret+="|"this.getCell(i, j).toString();		
+				ret+="|"+this.getCell(i, j).toString();
 			}
 			ret+="|\n";
 			for (int a = 0 ; a < length; a++){
