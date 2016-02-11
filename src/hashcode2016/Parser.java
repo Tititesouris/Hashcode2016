@@ -9,7 +9,7 @@ public class Parser {
     public static void parse() {
         Scanner scanner;
         try {
-            scanner = new Scanner(new File("input.txt"));
+            scanner = new Scanner(new File("busy_day.txt"));
             while (scanner.hasNext()) {
                 System.out.println(scanner.next());
             }
