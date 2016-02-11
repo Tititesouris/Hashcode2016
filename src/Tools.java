@@ -12,7 +12,7 @@ public class Tools {
      * @param cell
      * @return
      */
-    public double distance(Drone drone, Cell cell){
+    public static double distance(Drone drone, Cell cell){
         return Math.sqrt(Math.pow((drone.getPosition().getX()+cell.getX()),2) + Math.pow((drone.getPosition().getY()+ cell.getY()),2));
     }
 
@@ -22,7 +22,7 @@ public class Tools {
      * @param b
      * @return
      */
-    public double distance(Cell a, Cell b){
+    public static double distance(Cell a, Cell b){
         return Math.sqrt(Math.pow((a.getX()+b.getX()),2) + Math.pow((a.getY()+ b.getY()),2));
     }
 
