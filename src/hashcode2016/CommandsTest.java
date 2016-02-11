@@ -19,7 +19,7 @@ public class CommandsTest extends TestCase {
 
     @Test
     public void test(){
-        dataoutput.droneLoad(new Drone(0,100), new Warehouse(0,0),new Product(0,50),2);
+        dataoutput.droneLoad(new Drone(0,100), new Warehouse(0,0, 0),new Product(0,50),2);
         assertTrue(dataoutput.outputFile());
     }
 }

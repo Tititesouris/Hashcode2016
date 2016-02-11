@@ -7,33 +7,30 @@ import java.util.Map;
  */
 public class Client extends Cell {
 
-    Map<Product,Integer> need;
+    Map<Product, Integer> need;
 
-    public Client(int x,int y){
-        super(x,y);
+    public Client(int x, int y) {
+        super(x, y);
     }
 
-    public boolean addNeed(Product p, int i){
-            if(need.containsKey(p)){
-                need.replace(p,need.get(p)+i);
-            }
-            else {
-                need.put(p, i);
-            }
-
-            return true;
-    }
-
-    public int load(Product p,int i) {
-        if(!need.containsKey(p)){
-            return -1;
+    public boolean addNeed(Product p, int i) {
+        if (need.containsKey(p)) {
+            need.replace(p, need.get(p) + i);
+        } else {
+            need.put(p, i);
         }
 
-        else{
+        return true;
+    }
 
-            if(i==need.get(p)){
+    public int load(Product p, int i) {
+        if (!need.containsKey(p)) {
+            return -1;
+        } else {
+
+            if (i == need.get(p)) {
                 need.remove(p);
-            }else {
+            } else {
 
                 need.replace(p, need.get(p) - i);
             }
@@ -41,7 +38,6 @@ public class Client extends Cell {
             return i;
         }
     }
-
 
 
 }
