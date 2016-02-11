@@ -112,4 +112,19 @@ public class DataContainer {
     public void setOrders(HashMap<Integer, Order> orders) {
         this.orders = orders;
     }
+
+
+    @Override
+    public String toString() {
+        return "DataContainer{" +
+                "rows=" + rows +
+                ", columns=" + columns +
+                ", drones=" + drones +
+                ", maxTurns=" + maxTurns +
+                ", maxPayload=" + maxPayload +
+                ", nbProductsType=" + nbProductsType +
+                ", nbWarehouses=" + nbWarehouses +
+                ", nbOrders=" + nbOrders +
+                '}';
+    }
 }

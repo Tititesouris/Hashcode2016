@@ -1,5 +1,6 @@
 package hashcode2016;
 
+import javax.xml.crypto.Data;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -9,14 +10,16 @@ public class Parser {
     /**
      * Parse data
      */
-    public static void parse() {
+    public static DataContainer parse() {
         Scanner scanner;
+
+        // DataContainer
+        DataContainer container = new DataContainer();
+
+
         try {
             scanner = new Scanner(new File("busy_day.in"));
             String[] line;
-
-            // DataContainer
-            DataContainer container = new DataContainer();
 
 
             // 100rows, 100columns, 3drones, 50turns, maxpayload is 500u
@@ -58,13 +61,13 @@ public class Parser {
                 Order order = new Order(orderId, getIntArg(line[1]), getIntArg(line[0]));
                 container.getOrders().put(orderId, order);
 
-               // line = getIntArg(getNextLine(scanner)); // contains products numbers
-                for (int product = 0; product < container.getNbProductsType(); product++) {
-                    // get current warehouse
-
-
-
+                int nbItems = getIntArg(scanner.nextLine());
+                line = getNextLine(scanner);
+                for (int itemid = 0; itemid < nbItems; itemid++) {
+                    int productId = getIntArg(line[itemid]);
+                    order.addProduct(container.getProducts().get(productId), 1);
                 }
+
             }
 
 
@@ -72,6 +75,8 @@ public class Parser {
             e.printStackTrace();
         }
 
+
+        return container;
     }
 
     /**
