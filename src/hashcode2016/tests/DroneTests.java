@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * TODO: Description
@@ -43,6 +44,11 @@ public class DroneTests {
         assertEquals(1, mediumDrone.load(productB, 1));
         assertEquals(2, mediumDrone.load(productB, 3));
         assertEquals(0, smallDrone.load(productC, 1));
+    }
+
+    @Test
+    public void unloadTest() {
+        fail();
     }
 
 }
