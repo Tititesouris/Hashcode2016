@@ -67,7 +67,7 @@ public class Parser {
             container.setNbOrders(getIntArg(scanner.nextLine()));// orders number
             for (int orderId = 0; orderId < container.getNbOrders(); orderId++) {
                 line = getNextLine(scanner); // contains location
-                Order order = new Order(orderId, new Client(getIntArg(line[1]), getIntArg(line[0])));
+                Order order = new Order(orderId, getIntArg(line[1]), getIntArg(line[0]));
                 container.getOrders().put(orderId, order);
 
                 int nbItems = getIntArg(scanner.nextLine());

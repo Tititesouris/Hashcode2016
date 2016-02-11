@@ -6,7 +6,9 @@ import java.util.Map;
 public class Drone {
 
     private int id;
+
     private float maxPayload;
+
     private Cell position;
 
     private Map<Product, Integer> products;
@@ -68,6 +70,10 @@ public class Drone {
         return payload;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public float getMaxPayload() {
         return maxPayload;
     }
@@ -76,9 +82,6 @@ public class Drone {
         return products;
     }
 
-    public int getId() {
-        return id;
-    }
     public Cell getPosition(){
         return position;
     }
