@@ -53,6 +53,16 @@ public class Main {
             }
         }
 
+        while(!delivery.getOrders().isEmpty()){
+            Order toDeliver = delivery.getOrders().get(0);
+
+            //DEliver
+
+            for(Product p : toDeliver.getOrder().keySet()){
+                commands.deliver(drone,toDeliver,p,toDeliver.getOrder().get(p));
+            }
+            delivery.validateOrder(toDeliver);
+        }
     }
 
 }

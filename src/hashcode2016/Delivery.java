@@ -26,6 +26,16 @@ public class Delivery {
         }
     }
 
+    public boolean validateOrder(Order toRemove){
+        if(orders.contains(toRemove)){
+            orders.remove(toRemove);
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     /*
     *
     * Retourne une map contenant la quantité nécessaire manquante pour chaque produit de la livraison
@@ -61,6 +71,10 @@ public class Delivery {
 
     public Drone getDrone(){
         return drone;
+    }
+
+    public List<Order> getOrders(){
+        return orders;
     }
 
 }
