@@ -20,7 +20,7 @@ public class Warehouse {
 
     public boolean addProduct(Product p, int i){
         if(products.containsKey(p)){
-            products.put(p,products.get(p)+i);
+            products.replace(p,products.get(p)+i);
         }
         else {
             products.put(p, i);
