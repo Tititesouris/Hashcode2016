@@ -25,6 +25,7 @@ public class Simulation {
         for (int i = 0; i < dataContainer.getDrones(); i++) {
             drones.add(new Drone(i, dataContainer.getMaxPayload()));
         }
+        map.setDrones(drones);
     }
 
     public Map getMap() {
