@@ -35,9 +35,13 @@ public class Main {
     public static Delivery giveOrders(Drone drone){
         Delivery delivery = new Delivery(drone);
 
-        
+        delivery.addOrder(orders.get(0));
 
         return delivery;
+    }
+
+    public void executeDelivery(Delivery delivery){
+        
     }
 
 }
