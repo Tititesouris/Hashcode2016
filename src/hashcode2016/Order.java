@@ -4,21 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Order {
-	int id;
+
+	private int id;
+
 	private Client client;
+
 	private int nbItems;
 
 	private Map<Product, Integer> order;
 
-	/**
-	 *
-	 * @param id
-	 * @param x
-     * @param y
-     */
-	public Order(int id, int x, int y) {
+	public Order(int id, Client client) {
 		this.id = id;
-		client=new Client(x,y);
+		this.client = client;
 		this.order = new HashMap<Product, Integer>();
 	}
 
@@ -39,15 +36,11 @@ public class Order {
 		this.id = id;
 	}
 
-	public int getX() {
-		return client.getX();
-	}
+    public Client getClient() {
+        return client;
+    }
 
-	public int getY() {
-		return client.getY();
-	}
-
-	public int getNbItems() {
+    public int getNbItems() {
 		return nbItems;
 	}
 
