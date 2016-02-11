@@ -23,6 +23,19 @@ public class Drone {
         return true;
     }
 
+    public int unload(Product product, int amount) {
+        if (products.containsKey(product)) {
+            if (amount < products.get(product)) {
+                products.replace(product, products.get(product) - amount);
+                return amount;
+            }
+            int unloaded = products.get(product);
+            products.remove(product);
+            return unloaded;
+        }
+        return 0;
+    }
+
     public float getMaxPayload() {
         return maxPayload;
     }
