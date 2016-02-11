@@ -7,4 +7,9 @@ public class Product {
 		this.type= type;
 		this.weight = weight;
 	}
+	
+	boolean verifieMaxPayload(Drone d){
+		return d.getMaxPayload()>= this.weight;
+		
+	}
 }
