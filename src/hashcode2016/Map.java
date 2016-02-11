@@ -2,18 +2,18 @@ package hashcode2016;
 
 public class Map {
 	
-	int length;
-	int width;
+	int columns;
+	int rows;
 	Cell[][] map;
-	public Map(int length,int width){
-		map = new Cell[length][width];
-		
+
+	public Map(int columns, int rows){
+		map = new Cell[columns][rows];
 		
 	}
 	//initialiser la map a vide
-	void initiMap(){
-		for(int i = 0; i < length; i++){
-			for(int j = 0; j < width ; j++){
+	void initiMap() {
+		for(int i = 0; i < columns; i++){
+			for(int j = 0; j < rows; j++){
 				map[i][j] = new Cell(i, j);				
 			}
 		}
@@ -27,12 +27,12 @@ public class Map {
 	
 	public String toString(){
 		String ret = "";
-		for(int i = 0; i < length; i++){
-			for(int j = 0; j < width ; j++){
+		for(int i = 0; i < columns; i++){
+			for(int j = 0; j < rows; j++){
 				ret+="|" + this.getCell(i, j).toString();
 			}
 			ret+="|\n";
-			for (int a = 0 ; a < length; a++){
+			for (int a = 0; a < columns; a++){
 				ret+="---";
 			}
 			ret+="\n";
