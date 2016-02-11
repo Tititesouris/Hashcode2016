@@ -1,6 +1,5 @@
 package hashcode2016;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,12 +39,12 @@ public class Simulation {
         return drones;
     }
 
-    public int loadOnDrone(Warehouse warehouse, Drone drone, java.util.Map<Product, Integer> products) {
+    public java.util.Map<Product, Integer> loadOnDrone(Warehouse warehouse, Drone drone, java.util.Map<Product, Integer> products) {
         java.util.Map<Product, Integer> loadedProducts = new HashMap<>();
         for (Product product : products.keySet()) {
             loadedProducts.put(product, drone.load(product, warehouse.unload(product, products.get(product))));
         }
-        return 0;
+        return loadedProducts;
     }
 
 }
