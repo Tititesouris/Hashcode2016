@@ -58,7 +58,7 @@ public class Parser {
                 line = getNextLine(scanner); // contains products numbers
                 for (int productId = 0; productId < container.getNbProductsType(); productId++) {
                     // get current warehouse
-            
+
 
 
                 }
