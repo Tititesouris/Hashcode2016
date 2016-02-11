@@ -20,6 +20,7 @@ public class DataContainer {
 
     HashMap<Integer, Product> products = new HashMap<>();
     HashMap<Integer, Warehouse> warehouses = new HashMap<>();
+    HashMap<Integer, Order> orders = new HashMap<>();
 
 
 
@@ -102,5 +103,13 @@ public class DataContainer {
 
     public void setWarehouses(HashMap<Integer, Warehouse> warehouses) {
         this.warehouses = warehouses;
+    }
+
+    public HashMap<Integer, Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(HashMap<Integer, Order> orders) {
+        this.orders = orders;
     }
 }

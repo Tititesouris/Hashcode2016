@@ -5,10 +5,20 @@ import java.util.Map;
 
 public class Order {
 	int id;
+	private int x;
+	private int y;
 	Map<Product, Integer> order;
 
-	public Order(int id) {
+	/**
+	 *
+	 * @param id
+	 * @param x
+     * @param y
+     */
+	public Order(int id, int x, int y) {
 		this.id = id;
+		this.x = x;
+		this.y = y;
 		this.order = new HashMap<Product, Integer>();
 	}
 

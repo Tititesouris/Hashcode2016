@@ -19,7 +19,6 @@ public class Parser {
             DataContainer container = new DataContainer();
 
 
-
             // 100rows, 100columns, 3drones, 50turns, maxpayload is 500u
             line = getNextLine(scanner);
             globalInformation(container, line);
@@ -28,7 +27,7 @@ public class Parser {
              * gets products
              */
             container.setNbProductsType(getIntArg(scanner.nextLine()));// products number
-            line=getNextLine(scanner);
+            line = getNextLine(scanner);
             for (int i = 0; i < container.getNbProductsType(); i++) {
                 container.getProducts().put(i, new Product(i, Float.parseFloat(line[i])));
             }
@@ -37,12 +36,33 @@ public class Parser {
              * gets warehouses
              */
             container.setNbWarehouses(getIntArg(scanner.nextLine()));// warehouses number
-            line=getNextLine(scanner);
-            for (int i = 0; i < container.getNbProductsType(); i++) {
-                container.getProducts().put(i, new Product(i, Float.parseFloat(line[i])));
+            for (int idWarehouse = 0; idWarehouse < container.getNbWarehouses(); idWarehouse++) {
+                line = getNextLine(scanner); // contains location
+                container.getWarehouses().put(idWarehouse, new Warehouse(getIntArg(line[0]), getIntArg(line[1])));
+
+                line = getNextLine(scanner); // contains products numbers
+                for (int productId = 0; productId < container.getNbProductsType(); productId++) {
+                    // get current warehouse
+                    container.getWarehouses().get(idWarehouse).addProduct(container.getProducts().get(productId), getIntArg(line[productId]));
+                }
             }
 
+            /**
+             * gets orders number
+             */
+            container.setNbOrders(getIntArg(scanner.nextLine()));// orders number
+            for (int orderId = 0; orderId < container.getNbOrders(); orderId++) {
+                line = getNextLine(scanner); // contains location
+                container.getOrders().put(orderId, new Order(orderId, getIntArg(line[0]), getIntArg(line[1])));
 
+                line = getNextLine(scanner); // contains products numbers
+                for (int productId = 0; productId < container.getNbProductsType(); productId++) {
+                    // get current warehouse
+            
+
+
+                }
+            }
 
 
         } catch (FileNotFoundException e) {
@@ -53,6 +73,7 @@ public class Parser {
 
     /**
      * Sets first information
+     *
      * @param container
      * @param line
      */

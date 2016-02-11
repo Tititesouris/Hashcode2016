@@ -18,6 +18,7 @@ public class Warehouse {
         this.y=y;
     }
 
+
     public boolean addProduct(Product p, int i){
         if(products.containsKey(p)){
             products.replace(p,products.get(p)+i);
