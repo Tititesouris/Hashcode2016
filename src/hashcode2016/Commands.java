@@ -27,14 +27,15 @@ public class Commands {
      * @return Returns number of products loaded
      */
     protected int droneLoad(Drone drone, Warehouse warehouse, Product product, int amount) {
-        String s="";
-        s+=drone.getId() + " L " + warehouse.getId() + " " + product.getType() + " " + amount;
-        commands.add(s);
-        return -1;
+        String s = "";
+        s += drone.getId() + " L " + warehouse.getId() + " " + product.getType() + " " + amount;
+        addCommand(s);
+        return 0;
     }
 
     /**
      * ADVANCED COMMAND, NOT USEFUL FOR NOW
+     *
      * @param drone
      * @param warehouse
      * @param product
@@ -47,6 +48,7 @@ public class Commands {
 
     /**
      * ADVANCED COMMAND, NOT USEFUL FOR NOW
+     *
      * @param drone
      * @return
      */
@@ -55,40 +57,42 @@ public class Commands {
     }
 
     /**
-     *
      * @param drone
      * @param order
      * @return
      */
-    protected boolean deliver(Drone drone, Order order, Product product, int amount){
-        String s="";
-        s+=drone.getId() + " D " + order.getId() + " " + product.getType() + " " + amount;
+    protected boolean deliver(Drone drone, Order order, Product product, int amount) {
+        String s = "";
+        s += drone.getId() + " D " + order.getId() + " " + product.getType() + " " + amount;
 
-        commands.add(s);
+        addCommand(s);
         return false;
     }
 
 
     /**
      * Adds a command
+     *
      * @param s
      */
-    protected void addCommand(String s){
+    protected void addCommand(String s) {
         nbCommands++;
-
-        sb.append(s+"\n");
+        sb.append(s + "\n");
     }
 
 
     /**
      * Output a file from commands
      */
-    protected boolean outputFile(){
+    protected boolean outputFile(String out) {
+        System.out.println("TRUUUC ICI");
         PrintWriter writer = null;
         try {
-            writer = new PrintWriter("output.txt", "UTF-8");
+            writer = new PrintWriter(out.replace(".in",".out"), "UTF-8");
             writer.println(nbCommands);
+            System.out.println(nbCommands);
             writer.println(sb.toString());
+            System.out.println(sb.toString());
             writer.close();
 
         } catch (FileNotFoundException e) {

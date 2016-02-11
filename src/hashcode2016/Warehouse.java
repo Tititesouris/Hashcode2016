@@ -46,12 +46,13 @@ public class Warehouse extends Cell {
     public int unload(Product product, int amount) {
         Integer loadedProduct = products.get(product);
         if (loadedProduct != null) {
-            if (amount < loadedProduct) {
-                products.replace(product, loadedProduct - amount);
-                return amount;
+            int newQuantity = loadedProduct-amount;
+            if(newQuantity < 0){
+                newQuantity = loadedProduct;
             }
-            products.remove(product);
-            return loadedProduct;
+
+            products.replace(product, loadedProduct-newQuantity);
+            return newQuantity;
         }
         return 0;
     }
