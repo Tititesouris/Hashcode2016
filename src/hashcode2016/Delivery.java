@@ -47,13 +47,20 @@ public class Delivery {
 
         Map<Product,Integer> alreadyGet = drone.getProducts();
 
-        for(Product p : alreadyGet.keySet()){
-            if(res.containsKey(p)){
-                res.replace(p,res.get(p)-alreadyGet.get(p));
+        for(Product p : alreadyGet.keySet()) {
+            if (res.containsKey(p)) {
+                res.replace(p, res.get(p) - alreadyGet.get(p));
+            }
+            if (res.get(p) == 0) {
+                res.remove(p);
             }
         }
 
         return res;
+    }
+
+    public Drone getDrone(){
+        return drone;
     }
 
 }
