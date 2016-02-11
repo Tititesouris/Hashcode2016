@@ -29,7 +29,7 @@ public class Tools {
     }
 
     public static int distanceDroneClient(Drone drone, Warehouse wh, Order order){
-
+        return (int)(distance(drone, wh)+distance(wh, order));
     }
 
 }
