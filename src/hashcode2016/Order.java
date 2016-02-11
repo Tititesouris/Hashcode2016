@@ -7,6 +7,8 @@ public class Order {
 	int id;
 	private int x;
 	private int y;
+	private int nbItems;
+
 	Map<Product, Integer> order;
 
 	/**
@@ -29,5 +31,45 @@ public class Order {
 		else 
 			order.put(p,quantity);
 
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getNbItems() {
+		return nbItems;
+	}
+
+	public void setNbItems(int nbItems) {
+		this.nbItems = nbItems;
+	}
+
+	public Map<Product, Integer> getOrder() {
+		return order;
+	}
+
+	public void setOrder(Map<Product, Integer> order) {
+		this.order = order;
 	}
 }

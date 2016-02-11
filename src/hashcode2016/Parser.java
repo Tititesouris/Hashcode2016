@@ -38,7 +38,7 @@ public class Parser {
             container.setNbWarehouses(getIntArg(scanner.nextLine()));// warehouses number
             for (int idWarehouse = 0; idWarehouse < container.getNbWarehouses(); idWarehouse++) {
                 line = getNextLine(scanner); // contains location
-                container.getWarehouses().put(idWarehouse, new Warehouse(getIntArg(line[0]), getIntArg(line[1])));
+                container.getWarehouses().put(idWarehouse, new Warehouse(getIntArg(line[1]), getIntArg(line[0])));
 
                 line = getNextLine(scanner); // contains products numbers
                 for (int productId = 0; productId < container.getNbProductsType(); productId++) {
@@ -47,16 +47,19 @@ public class Parser {
                 }
             }
 
+
+
             /**
              * gets orders number
              */
             container.setNbOrders(getIntArg(scanner.nextLine()));// orders number
             for (int orderId = 0; orderId < container.getNbOrders(); orderId++) {
                 line = getNextLine(scanner); // contains location
-                container.getOrders().put(orderId, new Order(orderId, getIntArg(line[0]), getIntArg(line[1])));
+                Order order = new Order(orderId, getIntArg(line[1]), getIntArg(line[0]));
+                container.getOrders().put(orderId, order);
 
-                line = getNextLine(scanner); // contains products numbers
-                for (int productId = 0; productId < container.getNbProductsType(); productId++) {
+               // line = getIntArg(getNextLine(scanner)); // contains products numbers
+                for (int product = 0; product < container.getNbProductsType(); product++) {
                     // get current warehouse
 
 
