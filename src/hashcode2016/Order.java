@@ -3,22 +3,18 @@ package hashcode2016;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Order {
+public class Order extends Cell {
 
 	private int id;
 
-    private int x;
-
-    private int y;
 
 	private int nbItems;
 
 	private Map<Product, Integer> order;
 
 	public Order(int id, int x, int y) {
+		super(x,y);
 		this.id = id;
-		this.x = x;
-        this.y = y;
 		this.order = new HashMap<Product, Integer>();
 	}
 

@@ -60,7 +60,11 @@ public class Commands {
      * @param order
      * @return
      */
-    protected boolean deliver(Drone drone, Order order){
+    protected boolean deliver(Drone drone, Order order, Product product, int amount){
+        String s="";
+        s+=drone.getId() + " D " + order.getId() + " " + product.getType() + " " + amount;
+
+        commands.add(s);
         return false;
     }
 

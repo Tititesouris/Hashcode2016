@@ -1,5 +1,7 @@
 import hashcode2016.Cell;
 import hashcode2016.Drone;
+import hashcode2016.Order;
+import hashcode2016.Warehouse;
 
 /**
  * Created by Pierre on 11/02/2016.
@@ -26,5 +28,8 @@ public class Tools {
         return Math.sqrt(Math.pow((a.getX()+b.getX()),2) + Math.pow((a.getY()+ b.getY()),2));
     }
 
+    public static int distanceDroneClient(Drone drone, Warehouse wh, Order order){
+
+    }
 
 }
