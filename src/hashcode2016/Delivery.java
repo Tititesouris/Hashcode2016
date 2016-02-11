@@ -1,5 +1,6 @@
 package hashcode2016;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 public class Delivery {
 
     private Drone drone;
-    private List<Order> orders;
+    private List<Order> orders=new ArrayList<>();
 
     public Delivery(Drone d){
         drone=d;
