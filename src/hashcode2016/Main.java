@@ -14,8 +14,14 @@ public class Main {
     static Commands commands=new Commands();
 
     public static void main(String[] args) {
+        new Main("busy_day.in");
+        new Main("redundancy.in");
+        new Main("mother_of_all_warehouses.in");
+    }
+
+    public Main(String file){
         System.out.println("Hello World!");
-        container = Parser.parse("mother_of_all_warehouses.in");
+        container = Parser.parse(file);
         sim = new Simulation(container);
         map = sim.getMap();
         System.out.println(container);
@@ -33,7 +39,7 @@ public class Main {
             executeDelivery(d);
         }
 
-        commands.outputFile();
+        commands.outputFile(file);
 
 
     }

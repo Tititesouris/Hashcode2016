@@ -19,6 +19,6 @@ public class CommandsTest extends TestCase {
 
     @Test
     public void test(){
-      
+
     }
 }

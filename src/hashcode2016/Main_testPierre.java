@@ -61,6 +61,7 @@ public class Main_testPierre {
                 // on retire ça de l'entrepot
                 int l = warehouseDrones.unload(p, nbNeed);
                 if(l==0){
+                    System.out.println("OUPS," + p.getType());
                     canDeliver=false;
                     break;
                 }
