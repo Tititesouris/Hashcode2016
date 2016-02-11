@@ -1,5 +1,7 @@
 package hashcode2016;
 
+import java.util.HashMap;
+
 /**
  * Created by Pierre on 11/02/2016.
  */
@@ -14,6 +16,12 @@ public class DataContainer {
     protected int nbProductsType;
     protected int nbWarehouses;
     protected int nbOrders;
+
+
+    HashMap<Integer, Product> products = new HashMap<>();
+    HashMap<Integer, Warehouse> warehouses = new HashMap<>();
+
+
 
 
     public int getRows() {
@@ -78,5 +86,21 @@ public class DataContainer {
 
     public void setNbOrders(int nbOrders) {
         this.nbOrders = nbOrders;
+    }
+
+    public HashMap<Integer, Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(HashMap<Integer, Product> products) {
+        this.products = products;
+    }
+
+    public HashMap<Integer, Warehouse> getWarehouses() {
+        return warehouses;
+    }
+
+    public void setWarehouses(HashMap<Integer, Warehouse> warehouses) {
+        this.warehouses = warehouses;
     }
 }

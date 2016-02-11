@@ -19,17 +19,32 @@ public class Parser {
             DataContainer container = new DataContainer();
 
 
+
             // 100rows, 100columns, 3drones, 50turns, maxpayload is 500u
             line = getNextLine(scanner);
             globalInformation(container, line);
 
-
-
-            while (scanner.hasNextLine()) {
-
-                System.out.println(scanner.nextLine());
-
+            /**
+             * gets products
+             */
+            container.setNbProductsType(getIntArg(scanner.nextLine()));// products number
+            line=getNextLine(scanner);
+            for (int i = 0; i < container.getNbProductsType(); i++) {
+                container.getProducts().put(i, new Product(i, Float.parseFloat(line[i])));
             }
+
+            /**
+             * gets warehouses
+             */
+            container.setNbWarehouses(getIntArg(scanner.nextLine()));// warehouses number
+            line=getNextLine(scanner);
+            for (int i = 0; i < container.getNbProductsType(); i++) {
+                container.getProducts().put(i, new Product(i, Float.parseFloat(line[i])));
+            }
+
+
+
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
