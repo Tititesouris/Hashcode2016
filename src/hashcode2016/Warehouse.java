@@ -9,9 +9,11 @@ import java.util.Map;
 public class Warehouse extends Cell {
 
     private Map<Product,Integer> products;
+    private int id;
 
-    public Warehouse(int x,int y){
+    public Warehouse(int id, int x,int y){
         super(x,y);
+        this.id = id;
         products = new HashMap<Product,Integer>();
     }
 
@@ -48,4 +50,7 @@ public class Warehouse extends Cell {
         }
     }
 
+    public int getId() {
+        return id;
+    }
 }

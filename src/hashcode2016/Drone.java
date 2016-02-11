@@ -5,11 +5,13 @@ import java.util.Map;
 
 public class Drone {
 
+    private int id;
     private float maxPayload;
 
     private Map<Product, Integer> products;
 
-    public Drone(float maxPayload) {
+    public Drone(int id, float maxPayload) {
+        this.id = id;
         this.maxPayload = maxPayload;
         this.products = new HashMap<>();
     }
@@ -72,5 +74,8 @@ public class Drone {
     public Map<Product, Integer> getProducts() {
         return products;
     }
-    
+
+    public int getId() {
+        return id;
+    }
 }
