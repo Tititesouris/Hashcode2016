@@ -15,16 +15,14 @@ public class Parser {
             // first line
             line = scanner.nextLine();
 
-
             while (scanner.hasNextLine()) {
 
                 System.out.println(scanner.nextLine());
-
 
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-    }
 
+    }
 }
