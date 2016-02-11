@@ -29,12 +29,12 @@ public class Drone {
      * @return  Nombre de produits chargés.
      */
     public int load(Product product, int amount) {
-        if (!products.containsKey(product))
-            products.put(product, 0);
 
         int loaded = 0;
         while (loaded < amount && getPayloadWeight() + product.getWeight() <= maxPayload) {
             loaded++;
+            if (!products.containsKey(product))
+                products.put(product, 0);
             products.replace(product, products.get(product) + 1);
         }
         return loaded;

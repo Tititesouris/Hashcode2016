@@ -40,10 +40,10 @@ public class Simulation {
         return drones;
     }
 
-    public int loadOnDrone(Warehouse warehouse, Drone drone, Order order) {
-        java.util.Map<Product, Integer> products = order.getOrder();
+    public int loadOnDrone(Warehouse warehouse, Drone drone, java.util.Map<Product, Integer> products) {
+        java.util.Map<Product, Integer> loadedProducts = new HashMap<>();
         for (Product product : products.keySet()) {
-            return drone.load(product, warehouse.unload(product, products.get(product)));
+            loadedProducts.put(product, drone.load(product, warehouse.unload(product, products.get(product))));
         }
         return 0;
     }
