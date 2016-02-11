@@ -7,6 +7,7 @@ public class Drone {
 
     private int id;
     private float maxPayload;
+    private Cell position;
 
     private Map<Product, Integer> products;
 
@@ -78,4 +79,12 @@ public class Drone {
     public int getId() {
         return id;
     }
+    public Cell getPosition(){
+        return position;
+    }
+
+    public void setPosition(Cell c){
+        position=c;
+    }
+
 }

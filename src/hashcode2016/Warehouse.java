@@ -14,7 +14,8 @@ public class Warehouse extends Cell {
     public Warehouse(int id, int x,int y){
         super(x,y);
         this.id = id;
-        products = new HashMap<Product,Integer>();
+        products = new HashMap<>();
+
     }
 
 
@@ -33,21 +34,26 @@ public class Warehouse extends Cell {
         return products;
     }
 
-    public int unload(Product p, int i){
-        if(i>products.get(p)){
-            int available = products.get(p);
-            products.remove(p);
-            return available;
-        }
-        else{
-            if(products.get(p)==null){
-                return -1;
+    /**
+     * Tente de décharger un nombre de produits de la warehouse.
+     * La méthode retourne le nombre de produits déchargés, qui peut être
+     * différent de celui spécifié si la warehouse n'a pas asser de produits.
+     *
+     * @param product   Le produit à décharger
+     * @param amount    La quantité à décharger
+     * @return  La quantité de produits déchargés.
+     */
+    public int unload(Product product, int amount) {
+        Integer loadedProduct = products.get(product);
+        if (loadedProduct != null) {
+            if (amount < loadedProduct) {
+                products.replace(product, loadedProduct - amount);
+                return amount;
             }
-            else{
-                products.replace(p,products.get(p)-i);
-                return i;
-            }
+            products.remove(product);
+            return loadedProduct;
         }
+        return 0;
     }
 
     public int getId() {
