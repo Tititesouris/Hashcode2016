@@ -9,12 +9,13 @@ public class Drone {
 
     private float maxPayload;
 
-    private Cell position;
+    private Cell cell;
 
     private Map<Product, Integer> products;
 
-    public Drone(int id, float maxPayload) {
+    public Drone(int id, Cell cell, float maxPayload) {
         this.id = id;
+        this.cell = cell;
         this.maxPayload = maxPayload;
         this.products = new HashMap<>();
     }
@@ -82,12 +83,12 @@ public class Drone {
         return products;
     }
 
-    public Cell getPosition(){
-        return position;
+    public Cell getCell() {
+        return cell;
     }
 
-    public void setPosition(Cell c){
-        position=c;
+    public void setCell(Cell cell) {
+        this.cell = cell;
     }
 
 }

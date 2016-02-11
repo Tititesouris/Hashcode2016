@@ -11,6 +11,7 @@ public class Main {
     static List<Delivery> deliveries;
     static List<Order> orders;
     static Simulation sim;
+    static Commands commands=new Commands();
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
@@ -46,9 +47,22 @@ public class Main {
         java.util.HashMap<Integer,Warehouse> warehouses = container.getWarehouses();
         int cpt=0;
         while(!delivery.getNeededProducts().isEmpty()){
-            sim.loadOnDrone(warehouses.get(cpt),drone,delivery.getNeededProducts());
+            java.util.Map<Product,Integer> loadedProducts = sim.loadOnDrone(warehouses.get(cpt),drone,delivery.getNeededProducts());
+            for(Product p : loadedProducts.keySet()){
+                commands.droneLoad(drone,warehouses.get(cpt),p,loadedProducts.get(p));
+            }
         }
 
+        while(!delivery.getOrders().isEmpty()){
+            Order toDeliver = delivery.getOrders().get(0);
+
+            //DEliver
+
+            for(Product p : toDeliver.getOrder().keySet()){
+                commands.deliver(drone,toDeliver,p,toDeliver.getOrder().get(p));
+            }
+            delivery.validateOrder(toDeliver);
+        }
     }
 
 }

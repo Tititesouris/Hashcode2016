@@ -1,5 +1,7 @@
 package hashcode2016;
 
+import java.util.List;
+
 public class Map {
 
     int rows;
@@ -7,6 +9,8 @@ public class Map {
 	int columns;
 
 	Cell[][] map;
+
+    List<Drone> drones;
 
 	public Map(int columns, int rows){
 		map = new Cell[columns][rows];
@@ -24,8 +28,16 @@ public class Map {
 	public void setCell(int row, int column, Cell cell){
 		map[column][row] = cell;
 	}
-	
-	public String toString(){
+
+    public List<Drone> getDrones() {
+        return drones;
+    }
+
+    public void setDrones(List<Drone> drones) {
+        this.drones = drones;
+    }
+
+    public String toString(){
 		String map = "";
 		for(int column = 0; column < columns; column++){
 			for(int row = 0; row < rows; row++) {
